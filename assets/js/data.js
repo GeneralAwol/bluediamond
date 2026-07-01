@@ -138,4 +138,9 @@ window.BDC_PRODUCTS = [
     description:'Isabella hexagonal cluster earrings in gold, set with brilliant diamonds — geometric and eye-catching.',
     images:['assets/img/products/isabella-earrings-1.webp','assets/img/products/isabella-earrings-2.webp','assets/img/products/isabella-earrings-3.webp','assets/img/products/isabella-earrings-4.webp'] },
 
-  { id:'penzi-tennis-bracelet', category:'jewellery', type:'Bracelets'
+  { id:'penzi-tennis-bracelet', category:'jewellery', type:'Bracelets', title:'Penzi Diamond Tennis Bracelet',
+    metal:'Gold', stone:'Diamond', price:0, detail:'Gold · Diamond Tennis', tone:'gold',
+    description:'The Penzi tennis bracelet — a continuous line of diamonds set in gold, timeless around the wrist.',
+    images:['assets/img/products/penzi-tennis-bracelet-1.webp','assets/img/products/penzi-tennis-bracelet-2.webp','assets/img/products/penzi-tennis-bracelet-3.webp','assets/img/products/penzi-tennis-bracelet-4.webp','assets/img/products/penzi-tennis-bracelet-5.webp'] }
+
+];

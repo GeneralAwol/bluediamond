@@ -331,4 +331,11 @@
     if (enqForm) enqForm.addEventListener('submit', function (e) {
       e.preventDefault();
       if (!enqForm.checkValidity()) { enqForm.reportValidity(); return; }
-      var s = document.getE
+      var s = document.getElementById('enq-success'); if (s) s.classList.add('show');
+      enqForm.querySelector('button[type="submit"]').style.display = 'none';
+    });
+  }
+
+  initCatalog();
+  initProduct();
+})();
