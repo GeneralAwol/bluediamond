@@ -87,6 +87,8 @@
         '</div></details>';
     }
 
+    fhtml += '<div class="filters-actions"><button type="button" class="btn btn--primary btn--block" id="f-apply">Show results</button></div>';
+
     var sortHTML = sortOpts.map(function (o) { return '<option value="' + o[0] + '">' + o[1] + '</option>'; }).join('');
 
     root.innerHTML =
@@ -157,7 +159,7 @@
     root.addEventListener('click', function (e) {
       if (e.target.closest('#f-clear') || e.target.closest('#f-clear-2')) clearAll();
       if (e.target.closest('#f-toggle')) document.getElementById('filters').classList.toggle('open');
-      if (e.target.closest('#f-close')) document.getElementById('filters').classList.remove('open');
+      if (e.target.closest('#f-close') || e.target.closest('#f-apply')) document.getElementById('filters').classList.remove('open');
     });
 
     /* pre-select from ?cat= or ?brand= etc. (deep links from mega-menu) */
