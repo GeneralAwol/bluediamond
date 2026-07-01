@@ -74,7 +74,7 @@
     }
 
     /* build sidebar */
-    var fhtml = '<div class="filters-head"><h4>Filter</h4><button type="button" class="filters-clear" id="f-clear">Clear all</button></div>';
+    var fhtml = '<div class="filters-head"><h4>Filter</h4><span><button type="button" class="filters-clear" id="f-clear">Clear all</button><button type="button" class="filters-close" id="f-close" aria-label="Close filters">×</button></span></div>';
     facets.forEach(function (f) {
       var rows = counts(f[0]).map(function (c) {
         return '<label class="f-row"><input type="checkbox" data-key="' + f[0] + '" value="' + esc(c[0]) + '"><span>' + esc(c[0]) + '</span><em>(' + c[1] + ')</em></label>';
@@ -157,6 +157,7 @@
     root.addEventListener('click', function (e) {
       if (e.target.closest('#f-clear') || e.target.closest('#f-clear-2')) clearAll();
       if (e.target.closest('#f-toggle')) document.getElementById('filters').classList.toggle('open');
+      if (e.target.closest('#f-close')) document.getElementById('filters').classList.remove('open');
     });
 
     /* pre-select from ?cat= or ?brand= etc. (deep links from mega-menu) */
@@ -247,6 +248,7 @@
     root.innerHTML =
       '<section class="section pd">' +
         '<div class="container">' +
+          '<button type="button" class="pd-back" id="pd-back"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg> Back</button>' +
           '<p class="crumbs-dark"><a href="index.html">Home</a> / <a href="' + listHref + '">' + listType + '</a> / ' + esc(p.title) + '</p>' +
           '<div class="pd-grid">' +
             '<div class="pd-gallery">' +
@@ -321,6 +323,8 @@
         '</form>' +
       '</div>';
     document.body.appendChild(modal);
+    var pb = document.getElementById('pd-back');
+    if (pb) pb.addEventListener('click', function () { if (history.length > 1) history.back(); else window.location.href = listHref; });
     function openModal() { modal.classList.add('open'); document.body.style.overflow = 'hidden'; }
     function closeModal() { modal.classList.remove('open'); document.body.style.overflow = ''; }
     var enqBtn = document.getElementById('pd-enquire');
